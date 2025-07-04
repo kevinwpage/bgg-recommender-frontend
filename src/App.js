@@ -17,7 +17,8 @@ export default function App() {
     setError(null);
     setRecommendations([]);
     try {
-      const response = await fetch("/recommend", {
+      // Directly call the Render backend (avoids Vercel rewrite issues)
+      const response = await fetch("https://bgg-recommender-backend.onrender.com/recommend", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ favorites: favorites.filter((f) => f.trim()) }),
@@ -44,7 +45,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <h1 className="text-2xl font-bold text-center mb-4">
-        🎲 Eerily Accurate Board Game Recommender
+        🎲 Board Game Recommender
       </h1>
       <p className="text-center text-gray-600 mb-6">
         Enter up to 5 of your favorite games
