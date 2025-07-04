@@ -17,7 +17,7 @@ export default function App() {
     setError(null);
     setRecommendations([]);
     try {
-      // Directly call the Render backend (avoids Vercel rewrite issues)
+      // Directly call the Render backend
       const response = await fetch("https://bgg-recommender-backend.onrender.com/recommend", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
